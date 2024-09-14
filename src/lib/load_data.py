@@ -8,7 +8,7 @@ class DataLoader:
         self.room_locations = {}
         self.room_data = None
         
-    def load_room_location(self) -> None:
+    def load_JSON(self) -> None:
         """
         This function loads the relative room locations for a given JSON file for a floor.
         If the file doesn't exist or is invalid, it raises an appropriate error.
@@ -23,7 +23,7 @@ class DataLoader:
         except Exception as e:
             print(f"An unexpected error occurred while loading room locations: {e}")
             
-    def get_room_locations(self) -> dict:
+    def get_JSON(self) -> dict:
         """
         This function returns the room locations dictionary for a given floor.
 
@@ -32,7 +32,7 @@ class DataLoader:
         """
         return self.room_locations
     
-    def load_room_data(self) -> pd.DataFrame:
+    def load_CSV(self) -> pd.DataFrame:
         """
         This function loads the room data for a given floor from a CSV file.
         If the file doesn't exist or cannot be read, it raises an appropriate error.
@@ -51,7 +51,7 @@ class DataLoader:
         except Exception as e:
             print(f"An unexpected error occurred while loading room data: {e}")
     
-    def get_room_data(self) -> pd.DataFrame:
+    def get_CSV(self) -> pd.DataFrame:
         """
         This function returns the room data for a given floor.
 
