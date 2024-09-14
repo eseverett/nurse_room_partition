@@ -1,16 +1,16 @@
-room_number, acuity, discharge
-39, 1, True
-51, 6, False
-45, 3, True
-42, 2, False
-44, 4, False
-43, 5, False
-29, 4, True
-33, 3, False
-31, 2, True
-37, 1, False
-35, 6, False
-41, 5, True
-47, 9, False
-49, 8, False
-38, 7, False
+Room,Acuity,Discharge
+39,1,True
+51,6,False
+45,3,True
+42,2,False
+44,4,False
+43,5,False
+29,4,True
+33,3,False
+31,2,True
+37,1,False
+35,6,False
+41,5,True
+47,9,False
+49,8,False
+38,7,False

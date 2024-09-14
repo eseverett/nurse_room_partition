@@ -8,6 +8,10 @@ class DataLoader:
         self.room_locations = {}
         self.room_data = None
         
+        self.acuity_list = []
+        self.room_list = []
+        self.discharge_list = []
+        
     def load_JSON(self) -> None:
         """
         This function loads the relative room locations for a given JSON file for a floor.
@@ -15,7 +19,7 @@ class DataLoader:
         """
         try:
             with open(self.room_location_path) as f:
-                self.room_locations = json.load(f)
+                self.room_locations = json.loads(f)
         except FileNotFoundError:
             print(f"Error: File '{self.room_location_path}' not found.")
         except json.JSONDecodeError:
@@ -59,3 +63,60 @@ class DataLoader:
             pd.DataFrame: room data
         """
         return self.room_data
+    
+    def make_acuity_list(self) -> None:
+        """
+        This function creates a list of acuity values from the room data.
+        """
+        try:
+            self.acuity_list = self.room_data['Acuity'].tolist()
+        except KeyError:
+            print("Error: 'Acuity' column not found in room data.")
+        except AttributeError:
+            print("Error: 'room_data' is not properly loaded or is None.")
+        except Exception as e:
+            print(f"An unexpected error occurred while creating the acuity list: {e}")
+            
+    def get_acuity_list(self) -> list:
+        """
+        This function returns the list of acuity values.
+        """
+        return self.acuity_list
+        
+    def make_room_list(self) -> None:
+        """
+        This function creates a list of room numbers from the room data.
+        """
+        try:
+            self.room_list = self.room_data['Room'].tolist()
+        except KeyError:
+            print("Error: 'Room' column not found in room data.")
+        except AttributeError:
+            print("Error: 'room_data' is not properly loaded or is None.")
+        except Exception as e:
+            print(f"An unexpected error occurred while creating the room numbers list: {e}")
+            
+    def get_room_list(self) -> list:
+        """
+        This function returns the list of room numbers.
+        """
+        return self.room_list
+        
+    def make_discharge_list(self) -> None:
+        """
+        This function creates a list of discharge values from the room data.
+        """
+        try:
+            self.discharge_list = self.room_data['Discharge'].tolist()
+        except KeyError:
+            print("Error: 'Discharge' column not found in room data.")
+        except AttributeError:
+            print("Error: 'room_data' is not properly loaded or is None.")
+        except Exception as e:
+            print(f"An unexpected error occurred while creating the discharge list: {e}")
+            
+    def get_discharge_list(self) -> list:
+        """ 
+        This function returns the list of discharge values.
+        """
+        return self.discharge_list
