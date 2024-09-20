@@ -48,8 +48,8 @@ def main() -> None:
     acuity_list=acuity_list,
     coords_list=coords_list,
     discharge_list=discharge_list,
-    acuity_scaling_factor=2,
-    discharge_scaling_factor=5,
+    acuity_scaling_factor=500,
+    discharge_scaling_factor=2,
     num_clusters=4
     )
 
